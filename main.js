@@ -1,28 +1,35 @@
-//Arrays
-
-//Create and array of numbers. Sum all of the numbers. Alert the sum.
-let arr = [1,2,3,4,45]
-const reducer = (accumulator, currentValue) => accumulator + currentValue;
-console.log(arr.reduce(reducer))
-//Create a function that takes in an array of numbers
-//Return a new array of numbers that is every original number squared
-function squareOriginal(arr){
-    let newArr = arr.map(x => x**2)
-    console.log(newArr)
+// *Variables*
+// Declare a variable and assign it to a sentance that is a positive affirmation. Print the affirmation to the console multiple times using a method
+let affirm = 'Hey, you\'re doing the work and I\'m proud of you.'
+for (let i=0;i<4;i++){
+    console.log(affirm)
 }
-squareOriginal([3,4,5])
-//Create a function that takes string
-//Print the reverse of that string to the console
-function stringReverse(str){
-    console.log(str.split('').reverse().join(''))
-}
-stringReverse('Why hello there!')
-//Create a function that takes in a string
-//Alert if the string is a palindrome or not
-function palindromeCheck(str){
-    let strReverser=str.split('').reverse().join('')
-    if (str == strReverser){
-        alert('That\'s a palindrome!')
+//Declare a variable, assign it an array of letters, combine the letters into one word, and alert it 
+let arrLetters = ['a', 'b', 'c', 'd', 'e', 'f']
+let arrJoined = arrLetters.join('')
+console.log(arrJoined)
+// *Functions*
+// Create a function that returns rock, paper, lizard, spock or scissors as randomly as possible
+function lizard(){
+    let choices = Math.random()
+    if (choices < .33){
+        return 'rock'
+    } else if(choices < .67){
+        return 'paper'
+    } else {
+        return 'scissors'
     }
 }
-palindromeCheck('not')
+// *Conditionals*
+//Create a function that takes in a choice (rock, paper, scissors, lizard, or spock) and determines if they won a game of rock paper scissors against a bot using the above function
+function gamePlay(toss){
+    let botChoice = lizard()
+    if ((toss === 'rock' && botChoice === 'scissors') || (toss ==='paper' && botChoice==='rock') || (toss ==='scissors' && botChoice==='paper')){
+        console.log('You win!')
+    } else if(toss===botChoice){
+        console.log('It\'s a tie!')
+    } else {
+        console.log('Take the L, brother')
+    }
+}
+gamePlay('rock')
